@@ -125,7 +125,7 @@
         android:checked="false"
         android:layout_below="@+id/radioButton2"
         android:layout_toStartOf="@+id/editText5"
-        android:textColor="#ff0fff00" />
+        android:textColor="#ff00ff00" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -135,7 +135,7 @@
         android:checked="false"
         android:layout_below="@+id/radioButton3"
         android:layout_alignStart="@+id/radioButton2"
-        android:textColor="#ffff6600" />
+        android:textColor="#ffff7700" />
 
     <RadioButton
         android:layout_width="wrap_content"
