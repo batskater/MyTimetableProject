@@ -1,6 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let&apos;s go!"
+        android:id="@+id/textView5"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Course ID:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="18dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_marginStart="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Course name:"
+        android:id="@+id/textView7"
+        android:layout_marginTop="18dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignStart="@+id/editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place:"
+        android:id="@+id/textView8"
+        android:layout_marginTop="18dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/textView7" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignStart="@+id/editText2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructor:"
+        android:id="@+id/textView9"
+        android:layout_marginTop="18dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView8"
+        android:layout_alignStart="@+id/textView8" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText4"
+        android:layout_above="@+id/textView10"
+        android:layout_alignStart="@+id/editText3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day:"
+        android:id="@+id/textView10"
+        android:layout_marginTop="19dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView9"
+        android:layout_alignStart="@+id/textView9" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monday"
+        android:id="@+id/radioButton"
+        android:checked="false"
+        android:layout_below="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"
+        android:textColor="#ffffdd00" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tuesday"
+        android:id="@+id/radioButton2"
+        android:checked="false"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignStart="@+id/radioButton"
+        android:textColor="#ffff00dd" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wednesday"
+        android:id="@+id/radioButton3"
+        android:checked="false"
+        android:layout_below="@+id/radioButton2"
+        android:layout_toStartOf="@+id/editText5"
+        android:textColor="#ff0fff00" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thursday"
+        android:id="@+id/radioButton4"
+        android:checked="false"
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignStart="@+id/radioButton2"
+        android:textColor="#ffff6600" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friday"
+        android:id="@+id/radioButton5"
+        android:checked="false"
+        android:layout_alignTop="@+id/radioButton"
+        android:layout_toEndOf="@+id/editText5"
+        android:textColor="#ff00e3ff" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saturday"
+        android:id="@+id/radioButton6"
+        android:checked="false"
+        android:layout_below="@+id/radioButton5"
+        android:layout_alignStart="@+id/radioButton5"
+        android:textColor="#ffbb00ff" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sunday"
+        android:id="@+id/radioButton7"
+        android:checked="false"
+        android:layout_below="@+id/radioButton6"
+        android:layout_alignStart="@+id/radioButton6"
+        android:textColor="#ffff0000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start time:"
+        android:id="@+id/textView11"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/radioButton4"
+        android:layout_alignStart="@+id/radioButton3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText5"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignStart="@+id/editText4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End time:"
+        android:id="@+id/textView12"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/textView11"
+        android:layout_alignStart="@+id/textView11" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText6"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_toStartOf="@+id/radioButton7" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Submit"
+        android:id="@+id/button3"
+        android:layout_marginBottom="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textColor="#ffffffff"
+        android:background="#ffff0000" />
+
+</RelativeLayout>
