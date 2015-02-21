@@ -23,7 +23,7 @@ public class ShowTimetableActivity extends ActionBarActivity {
             //tv.setText(i.getStringExtra("day"));
             helper = new DBHelper(this);
             SQLiteDatabase db = helper.getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT * FROM course ORDER BY _id DESC;",null);
+            Cursor cursor = db.rawQuery("SELECT * FROM timetable where day='Monday' ;",null);
             cursor.moveToFirst();
 
             adapter = new SimpleCursorAdapter(this,
@@ -32,7 +32,7 @@ public class ShowTimetableActivity extends ActionBarActivity {
                     new String[] {"courseid","coursename"},
                     new int[] {android.R.id.text1,android.R.id.text2},0);
             ListView lv = (ListView)findViewById(R.id.listView);
-
+            lv.setAdapter(adapter);
         }
 
         @Override

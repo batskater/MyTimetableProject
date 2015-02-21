@@ -1,11 +1,15 @@
 package com.example.tenthana.timetable;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -30,13 +34,53 @@ public class MainActivity extends ActionBarActivity {
         switch(id) {
             case R.id.btAdd:
                 i = new Intent(this,StartDesignActivity.class);
-                startActivity(i);
+                startActivityForResult(i, 1);
                 break;
             case R.id.btShow:
                 i = new Intent(this,SelectDayActivity.class);
                 startActivity(i);
                 break;
         }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                DBHelper helper = new DBHelper(this);
+                SQLiteDatabase db = helper.getReadableDatabase();
+                ContentValues r = new ContentValues();
+                String courseid = data.getStringExtra("courseid");
+                String coursename = data.getStringExtra("coursename");
+                String place = data.getStringExtra("place");
+                String instructor = data.getStringExtra("instructor");
+                String tstart = data.getStringExtra("tstart");
+                String tend = data.getStringExtra("tend");
+                String day = data.getStringExtra("day");
+                r.put("courseid", courseid);
+                r.put("coursename",coursename);
+                r.put("place",place);
+                r.put("instructor",instructor);
+                r.put("tstart",tstart);
+                r.put("tend",tend);
+                r.put("day",day);
+                long new_id = db.insert("timetable",null,r);
+
+                if (new_id == -1) {
+                    Toast t = Toast.makeText(this.getApplicationContext(), "Add course failed"
+                            , Toast.LENGTH_SHORT);
+                    t.show();
+                }
+                else {
+                    Toast t = Toast.makeText(this.getApplicationContext(), "Add course succeeded"
+                            , Toast.LENGTH_SHORT);
+                    t.show();
+                }
+
+                //db.close();
+            }
+        }
+
+        Log.d("timetable", "onActivityResult");
     }
 
     @Override

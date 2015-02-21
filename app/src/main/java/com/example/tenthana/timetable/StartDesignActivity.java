@@ -19,7 +19,7 @@ public class StartDesignActivity extends ActionBarActivity {
     }
 
     public void SubmitClicked(View v){
-        /*EditText etCourseID = (EditText)findViewById(R.id.etCourseID);
+        EditText etCourseID = (EditText)findViewById(R.id.etCourseID);
         EditText etCourseName = (EditText)findViewById(R.id.etCourseName);
         EditText etPlace = (EditText)findViewById(R.id.etPlace);
         EditText etInstructor = (EditText)findViewById(R.id.etInstructor);
@@ -30,17 +30,30 @@ public class StartDesignActivity extends ActionBarActivity {
         int rID = rg.getCheckedRadioButtonId();
         String rgDay = ((RadioButton)findViewById(rID)).getText().toString();
 
-        helper = new DBHelper(this);
+        Intent result = new Intent();
+        result.putExtra("courseid",etCourseID.getText().toString());
+        result.putExtra("coursename",etCourseName.getText().toString());
+        result.putExtra("place", etPlace.getText().toString());
+        result.putExtra("instructor",etInstructor.getText().toString());
+        result.putExtra("tstart",etStart.getText().toString());
+        result.putExtra("tend",etEnd.getText().toString());
+        result.putExtra("day",rgDay);
+        /*
+        DBHelper helper = new DBHelper(this);
         SQLiteDatabase db = helper.getReadableDatabase();
         ContentValues r = new ContentValues();
-        r.put("courseid",etCourseID.toString());
-        r.put("coursename",etCourseName.toString());
-        r.put("place", etPlace.toString());
+
+        r.put("courseid", etCourseID.toString());
+        r.put("coursename", etCourseName.toString());
+        r.put("place",etPlace.toString());
         r.put("instructor",etInstructor.toString());
-        r.put("tstart",etStart.toString());
-        r.put("tend",etEnd.toString());
-        r.put("day",rgDay);
+        r.put("tstart", etStart.toString());
+        r.put("tend", etEnd.toString());
+        r.put("day", rgDay.toString());
         long new_id = db.insert("timetable",null,r);*/
+
+        this.setResult(RESULT_OK, result);
+        this.finish();
     }
 
     @Override

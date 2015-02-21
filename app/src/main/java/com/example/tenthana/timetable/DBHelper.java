@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String name = "time.sqlite";
+    private static final String name = "timetable.sqlite3";
     private static final int version = 2;
 
 
