@@ -7,7 +7,7 @@ import android.view.MenuItem;
 public class StartDesignActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_timetable);
+        setContentView(R.layout.activity_start_design);
     }
 
     @Override

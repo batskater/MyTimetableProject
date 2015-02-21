@@ -1,13 +1,20 @@
 package com.example.tenthana.timetable;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ShowTimetableActivity extends ActionBarActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_show_timetable);
+
+            Intent i = this.getIntent();
+            // Get a string value named "value1"
+            TextView tv = (TextView)findViewById(R.id.textview);
+            tv.setText(i.getStringExtra("day"));
         }
 
         @Override
