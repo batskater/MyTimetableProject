@@ -30,7 +30,7 @@
         android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true"
         android:textColor="#ffffdd00"
-        android:onClick="onClicked" />
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"

@@ -12,7 +12,6 @@ public class ShowTimetableActivity extends ActionBarActivity {
             setContentView(R.layout.activity_show_timetable);
 
             Intent i = this.getIntent();
-            // Get a string value named "value1"
             TextView tv = (TextView)findViewById(R.id.textview);
             tv.setText(i.getStringExtra("day"));
         }

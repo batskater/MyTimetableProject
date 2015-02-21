@@ -12,7 +12,7 @@ public class SelectDayActivity extends ActionBarActivity {
         setContentView(R.layout.activity_select_day);
     }
 
-    public void onClicked (View v) {
+    public void SelectDayClicked (View v) {
         String day = "a";
         int id = v.getId();
         Intent i;
