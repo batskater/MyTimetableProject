@@ -4,10 +4,8 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:layout_width="101dp"
+    <ListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textview"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/listView" />
 </LinearLayout>

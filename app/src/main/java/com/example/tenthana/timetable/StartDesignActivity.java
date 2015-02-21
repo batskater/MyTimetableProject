@@ -19,7 +19,7 @@ public class StartDesignActivity extends ActionBarActivity {
     }
 
     public void SubmitClicked(View v){
-        EditText etCourseID = (EditText)findViewById(R.id.CourseID);
+        /*EditText etCourseID = (EditText)findViewById(R.id.etCourseID);
         EditText etCourseName = (EditText)findViewById(R.id.etCourseName);
         EditText etPlace = (EditText)findViewById(R.id.etPlace);
         EditText etInstructor = (EditText)findViewById(R.id.etInstructor);
@@ -40,7 +40,7 @@ public class StartDesignActivity extends ActionBarActivity {
         r.put("tstart",etStart.toString());
         r.put("tend",etEnd.toString());
         r.put("day",rgDay);
-        long new_id = db.insert("timetable",null,r);
+        long new_id = db.insert("timetable",null,r);*/
     }
 
     @Override
