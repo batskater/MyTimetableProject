@@ -40,6 +40,7 @@ public class StartDesignActivity extends ActionBarActivity {
         r.put("tstart",etStart.toString());
         r.put("tend",etEnd.toString());
         r.put("day",rgDay);
+        long new_id = db.insert("timetable",null,r);
     }
 
     @Override
