@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SelectDayActivity"
+            android:label="Select Day" >
+        </activity>
+        <activity
+            android:name=".ShowTimetableActivity"
+            android:label="Show Timetable" >
+        </activity>
+        <activity
+            android:name=".StartDesignActivity"
+            android:label="Start Designing Timetable !" >
+        </activity>
     </application>
 
 </manifest>

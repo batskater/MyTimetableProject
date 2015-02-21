@@ -26,7 +26,7 @@
         android:textSize="60dp"
         android:textColor="@android:color/black"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/button2"
+        android:layout_alignStart="@+id/btAdd"
         android:layout_marginStart="31dp" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:textStyle="bold|italic"
         android:textColor="#ffff0000"
         android:layout_below="@+id/textView2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignEnd="@+id/btAdd" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -47,29 +47,32 @@
         android:src="@drawable/write"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView3"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/btAdd"
         android:layout_toEndOf="@+id/textView2" />
 
     <Button
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:text="Show Timetable"
-        android:id="@+id/button"
+        android:id="@+id/btShow"
         android:textSize="25dp"
         android:background="#ff0000ff"
         android:textColor="#ffffffff"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonClicked" />
 
     <Button
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:text="Start design"
-        android:id="@+id/button2"
+        android:id="@+id/btAdd"
         android:textSize="25dp"
         android:background="#ffffff00"
         android:textColor="@android:color/black"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btShow"
+        android:layout_centerHorizontal="true"
+        android:nestedScrollingEnabled="false"
+        android:onClick="buttonClicked" />
 
 </RelativeLayout>
