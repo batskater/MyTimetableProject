@@ -52,6 +52,7 @@ public class EventListAdapter extends BaseAdapter {
         TextView tvCtend = (TextView)convertView.findViewById(R.id.tend);
         tvCtend.setText(contactListItems.getTend());
         return convertView;
+
     }
 
 }
