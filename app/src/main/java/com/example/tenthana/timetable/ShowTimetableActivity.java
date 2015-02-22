@@ -1,39 +1,64 @@
 package com.example.tenthana.timetable;
 
-import android.content.Intent;
+import java.util.ArrayList;
+
+
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
-public class ShowTimetableActivity extends ActionBarActivity {
+public class ShowTimetableActivity extends Activity {
         DBHelper helper;
-        SimpleCursorAdapter adapter;
+        //SimpleCursorAdapter adapter;
+        ListView lvCustomList;
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_show_timetable);
+            lvCustomList = (ListView) findViewById(R.id.srListView);
 
-            //Intent i = this.getIntent();
-            //TextView tv = (TextView)findViewById(R.id.textview);
-            //tv.setText(i.getStringExtra("day"));
-            helper = new DBHelper(this);
+            ArrayList<EventListItem> eventlist = new ArrayList<EventListItem>();
+            eventlist.clear();
+            helper = new DBHelper(this.getApplicationContext());
             SQLiteDatabase db = helper.getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT * FROM timetable where day='Monday' ;",null);
-            cursor.moveToFirst();
+            Cursor c1 = db.rawQuery("SELECT * FROM timetable;", null);
+            c1.moveToFirst();
+            if (c1 != null && c1.getCount() != 0) {
 
-            adapter = new SimpleCursorAdapter(this,
-                    android.R.layout.simple_list_item_2,
-                    cursor,
-                    new String[] {"courseid","coursename"},
-                    new int[] {android.R.id.text1,android.R.id.text2},0);
-            ListView lv = (ListView)findViewById(R.id.listView);
-            lv.setAdapter(adapter);
+                if (c1.moveToFirst()) {
+                    do {
+                        EventListItem eventListItem = new EventListItem();
+
+                        eventListItem.setCourseid(c1.getString(c1
+                                .getColumnIndex("courseid")));
+                        eventListItem.setCoursename(c1.getString(c1
+                                .getColumnIndex("coursename")));
+                        eventListItem.setInstructor(c1.getString(c1
+                                .getColumnIndex("instructor")));
+                        eventListItem.setPlace(c1.getString(c1
+                                .getColumnIndex("place")));
+                        eventListItem.setTend(c1.getString(c1
+                                .getColumnIndex("tend")));
+                        eventListItem.setTstart(c1.getString(c1
+                                .getColumnIndex("tstart")));
+                        eventlist.add(eventListItem);
+
+                    } while (c1.moveToNext());
+                }
+            }
+            c1.close();
+
+            EventListAdapter eventListAdapter = new EventListAdapter(this, eventlist);
+            lvCustomList.setAdapter(eventListAdapter);
+
         }
+
+
+
+
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
@@ -49,4 +74,7 @@ public class ShowTimetableActivity extends ActionBarActivity {
 
             return super.onOptionsItemSelected(item);
         }
+
+
+
 }
