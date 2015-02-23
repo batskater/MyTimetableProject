@@ -6,26 +6,41 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.usage.UsageEvents;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class ShowTimetableActivity extends Activity implements AdapterView.OnItemClickListener{
+public class ShowTimetableActivity extends ActionBarActivity implements AdapterView.OnItemClickListener{
     DBHelper helper;
     ListView lvCustomList;
     EventListAdapter eventListAdapter;
-    EventListItem items;
+    long selectedId;
+    ActionMode actionMode;
+    String input;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_timetable);
         lvCustomList = (ListView) findViewById(R.id.srListView);
+
+        Intent i = this.getIntent();
+        input = i.getStringExtra("day");
+
+        TextView tvDay = (TextView)findViewById(R.id.tvDay);
+        tvDay.setText(input);
+
 
         ArrayList<EventListItem> eventlist = new ArrayList<EventListItem>();
         eventlist.clear();
@@ -90,6 +105,7 @@ public class ShowTimetableActivity extends Activity implements AdapterView.OnIte
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }
 
