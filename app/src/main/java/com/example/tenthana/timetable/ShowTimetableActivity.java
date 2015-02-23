@@ -26,8 +26,6 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
     DBHelper helper;
     ListView lvCustomList;
     EventListAdapter eventListAdapter;
-    long selectedId;
-    ActionMode actionMode;
     String input;
 
     protected void onCreate(Bundle savedInstanceState) {
