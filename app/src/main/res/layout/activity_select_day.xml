@@ -42,7 +42,7 @@
         android:checked="false"
         android:textSize="25dp"
         android:textColor="#ffff00dd"
-        android:onClick="onClicked" />
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -54,7 +54,8 @@
         android:checked="false"
         android:textSize="25dp"
         android:textColor="#ff00ff00"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -65,7 +66,8 @@
         android:layout_alignStart="@+id/Wed"
         android:checked="false"
         android:textSize="25dp"
-        android:textColor="#ffff7700" />
+        android:textColor="#ffff7700"
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -76,7 +78,8 @@
         android:layout_alignStart="@+id/Thur"
         android:checked="false"
         android:textSize="25dp"
-        android:textColor="#ff00e3ff" />
+        android:textColor="#ff00e3ff"
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -87,7 +90,8 @@
         android:layout_alignStart="@+id/Fri"
         android:checked="false"
         android:textSize="25dp"
-        android:textColor="#ffbb00ff" />
+        android:textColor="#ffbb00ff"
+        android:onClick="SelectDayClicked" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -98,7 +102,8 @@
         android:layout_alignStart="@+id/Sat"
         android:checked="false"
         android:textSize="25dp"
-        android:textColor="#ffff0000" />
+        android:textColor="#ffff0000"
+        android:onClick="SelectDayClicked" />
 
     <ImageView
         android:layout_width="wrap_content"
