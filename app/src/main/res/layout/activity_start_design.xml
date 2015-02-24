@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:text="Monday"
             android:id="@+id/rbMon"
-            android:checked="false"
+            android:checked="true"
             android:layout_below="@+id/textView10"
             android:layout_alignStart="@+id/textView10"
             android:textColor="#ffffdd00" />

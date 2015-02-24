@@ -13,7 +13,7 @@ public class SelectDayActivity extends ActionBarActivity {
     }
 
     public void SelectDayClicked (View v) {
-        String day = "a";
+        String day = "";
         int id = v.getId();
         Intent i;
         switch (id) {

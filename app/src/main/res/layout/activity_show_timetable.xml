@@ -8,10 +8,12 @@
         android:layout_width="fill_parent"
         android:layout_height="37dp"
         android:gravity="center_vertical|center_horizontal"
-        android:id="@+id/tvDay" />
+        android:id="@+id/tvDay"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/srListView"
+        android:id="@+id/listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
