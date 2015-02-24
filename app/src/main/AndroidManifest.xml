@@ -18,15 +18,15 @@
         </activity>
         <activity
             android:name=".SelectDayActivity"
-            android:label="Select Day" >
+            android:label="Day Selection" >
         </activity>
         <activity
             android:name=".ShowTimetableActivity"
-            android:label="Show Timetable" >
+            android:label="Your Timetable" >
         </activity>
         <activity
             android:name=".StartDesignActivity"
-            android:label="Start Designing Timetable !" >
+            android:label="Designing Timetable !" >
         </activity>
     </application>
 

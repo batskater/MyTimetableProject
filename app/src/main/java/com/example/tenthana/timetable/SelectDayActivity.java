@@ -17,7 +17,7 @@ public class SelectDayActivity extends ActionBarActivity {
         int id = v.getId();
         Intent i;
         switch (id) {
-            case R.id.rbMon:
+            case R.id.Mon:
                 i = new Intent(this,ShowTimetableActivity.class);
                 i.putExtra("day", "Monday");
                 startActivity(i);
