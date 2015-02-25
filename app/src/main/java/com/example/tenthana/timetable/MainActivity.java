@@ -66,12 +66,12 @@ public class MainActivity extends ActionBarActivity {
                 long new_id = db.insert("timetable",null,r);
 
                 if (new_id == -1) {
-                    Toast t = Toast.makeText(this.getApplicationContext(), "Add course failed"
+                    Toast t = Toast.makeText(this.getApplicationContext(), "Failed to add an event."
                             , Toast.LENGTH_SHORT);
                     t.show();
                 }
                 else {
-                    Toast t = Toast.makeText(this.getApplicationContext(), "Add course succeeded"
+                    Toast t = Toast.makeText(this.getApplicationContext(), "Event has successfully been added."
                             , Toast.LENGTH_SHORT);
                     t.show();
                 }

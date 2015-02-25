@@ -59,10 +59,10 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
 
         helper = new DBHelper(this.getApplicationContext());
         SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT _id, courseid, ('Course Name: '|| coursename) coursename," +
-                "('Location: '|| place) place," +
-                "('Instructor: '|| instructor) instructor, " +
-                "('From: ' || tstart || ' To: ' || tend) time FROM timetable where day = '"+input+"';", null);
+        Cursor cursor = db.rawQuery("SELECT *, coursename," +
+                "place," +
+                "instructor, " +
+                "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
 
         adapter = new SimpleCursorAdapter(this,
                 //android.R.layout.simple_list_item_2,
@@ -147,19 +147,19 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 new String[]{Long.toString(selectedId)});
         if (rowCount == 1) {
             Toast t = Toast.makeText(this.getApplicationContext(),
-                    "Deleted one event", Toast.LENGTH_SHORT);
+                    "An event was deleted.", Toast.LENGTH_SHORT);
             t.show();
         }
         else {
             Toast t = Toast.makeText(this.getApplicationContext(),
-                    "Unable to delete the event",
+                    "Unable to delete the event.",
                     Toast.LENGTH_SHORT);
             t.show();
         }
-        Cursor cursor = db.rawQuery("SELECT _id, courseid, ('Course Name: '|| coursename) coursename," +
-                "('Location: '|| place) place," +
-                "('Instructor: '|| instructor) instructor, " +
-                "('From: ' || tstart || ' To: ' || tend) time FROM timetable where day = '"+input+"';", null);
+        Cursor cursor = db.rawQuery("SELECT *, coursename," +
+                "place," +
+                "instructor, " +
+                "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
         adapter.changeCursor(cursor);
         db.close();
     }
@@ -191,7 +191,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         else {
             // Unable to get the selected id
             Toast t = Toast.makeText(this.getApplicationContext(),
-                    "Unable to retrieve the selected event",
+                    "Unable to retrieve the selected event.",
                     Toast.LENGTH_SHORT);
             t.show();
         }
@@ -232,10 +232,10 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                             Toast.LENGTH_SHORT);
                     t.show();
                 }
-                Cursor cursor = db.rawQuery("SELECT _id, courseid, ('Course Name: '|| coursename) coursename," +
-                        "('Location: '|| place) place," +
-                        "('Instructor: '|| instructor) instructor, " +
-                        "('From: ' || tstart || ' To: ' || tend) time FROM timetable where day = '"+input+"';", null);
+                Cursor cursor = db.rawQuery("SELECT *, coursename," +
+                        "place," +
+                        "instructor, " +
+                        "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
                 adapter.changeCursor(cursor);
                 db.close();
             }

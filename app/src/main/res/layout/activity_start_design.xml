@@ -39,7 +39,7 @@
         android:capitalize="sentences"
         android:gravity="bottom"
         android:textSize="15dp"
-        android:inputType="text" />
+        android:inputType="textCapCharacters" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:textSize="15dp"
         android:capitalize="sentences"
         android:textColor="@android:color/white"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
         android:textSize="15dp"
         android:capitalize="sentences"
         android:textColor="@android:color/white"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
         android:textSize="15dp"
         android:capitalize="sentences"
         android:textColor="@android:color/white"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <TextView
         android:layout_width="wrap_content"

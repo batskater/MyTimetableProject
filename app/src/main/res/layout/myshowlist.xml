@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/RelativeLayout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,41 +12,93 @@
         android:id="@+id/tvCourseid"
         android:layout_weight="0.04"
         android:gravity="center_vertical"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:textColor="#ff000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Course Name"
-        android:id="@+id/tvCoursename"
-        android:layout_weight="0.04"
-        android:layout_marginLeft="10dp"
-        android:gravity="center_vertical" />
+        android:text="Course Name : "
+        android:id="@+id/textView13"
+        android:textSize="15dp"
+        android:layout_below="@+id/tvCourseid"
+        android:layout_alignStart="@+id/tvCourseid"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="5dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coursename"
+        android:id="@+id/tvCoursename"
+        android:layout_alignTop="@+id/textView13"
+        android:textSize="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/tvInstructor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location : "
+        android:id="@+id/textView14"
+        android:layout_below="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location"
         android:id="@+id/tvLocation"
-        android:layout_weight="0.04"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp" />
+        android:layout_below="@+id/tvCoursename"
+        android:layout_alignStart="@+id/tvCoursename"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructor : "
+        android:id="@+id/textView15"
+        android:layout_below="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Instructor"
         android:id="@+id/tvInstructor"
-        android:layout_weight="0.04"
-        android:layout_marginLeft="10dp"
-        android:gravity="center_vertical" />
+        android:layout_below="@+id/tvLocation"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView13" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time : "
+        android:id="@+id/tvT"
+        android:layout_below="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time"
         android:id="@+id/tvTime"
-        android:layout_weight="0.04"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp" />
-</LinearLayout>
+        android:layout_alignTop="@+id/tvT"
+        android:layout_alignStart="@+id/tvInstructor"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
