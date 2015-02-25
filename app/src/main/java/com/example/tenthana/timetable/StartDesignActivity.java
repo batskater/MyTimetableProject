@@ -47,7 +47,7 @@ public class StartDesignActivity extends ActionBarActivity {
 
             RadioGroup rgDay = (RadioGroup) findViewById(R.id.rgDay);
             if (day.equals("Monday")) {
-                rgDay.check(R.id.Mon);
+                rgDay.check(R.id.rbMon);
             } else if (day.equals("Tuesday")) {
                 rgDay.check(R.id.rbTue);
             } else if (day.equals("Wednesday")) {
