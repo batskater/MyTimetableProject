@@ -16,94 +16,102 @@
         android:textColor="@android:color/black"
         android:textIsSelectable="false"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Mon" />
+        android:layout_alignStart="@+id/radio" />
 
-    <RadioButton
+    <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Monday"
-        android:id="@+id/Mon"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ffffdd00"
-        android:onClick="SelectDayClicked"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginTop="29dp"
+        android:id="@+id/radio">
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Tuesday"
-        android:id="@+id/Tue"
-        android:layout_below="@+id/Mon"
-        android:layout_alignStart="@+id/Mon"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ffff00dd"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Monday"
+            android:id="@+id/Mon"
+            android:layout_below="@+id/radio"
+            android:layout_alignStart="@+id/radio"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#fffffc17"
+            android:onClick="SelectDayClicked" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Wednesday"
-        android:id="@+id/Wed"
-        android:layout_below="@+id/Tue"
-        android:layout_alignStart="@+id/Tue"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ff00ff00"
-        android:layout_alignParentStart="false"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Tuesday"
+            android:id="@+id/Tue"
+            android:layout_below="@+id/Mon"
+            android:layout_alignStart="@+id/Mon"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ffff00dd"
+            android:onClick="SelectDayClicked" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Thursday"
-        android:id="@+id/Thur"
-        android:layout_below="@+id/Wed"
-        android:layout_alignStart="@+id/Wed"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ffff7700"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Wednesday"
+            android:id="@+id/Wed"
+            android:layout_below="@+id/Tue"
+            android:layout_alignStart="@+id/Tue"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ff00ff00"
+            android:layout_alignParentStart="false"
+            android:onClick="SelectDayClicked" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Friday"
-        android:id="@+id/Fri"
-        android:layout_below="@+id/Thur"
-        android:layout_alignStart="@+id/Thur"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ff00e3ff"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Thursday"
+            android:id="@+id/Thur"
+            android:layout_below="@+id/Wed"
+            android:layout_alignStart="@+id/Wed"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ffff7700"
+            android:onClick="SelectDayClicked" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Saturday"
-        android:id="@+id/Sat"
-        android:layout_below="@+id/Fri"
-        android:layout_alignStart="@+id/Fri"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ffbb00ff"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Friday"
+            android:id="@+id/Fri"
+            android:layout_below="@+id/Thur"
+            android:layout_alignStart="@+id/Thur"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ff00e3ff"
+            android:onClick="SelectDayClicked" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Sunday"
-        android:id="@+id/Sun"
-        android:layout_below="@+id/Sat"
-        android:layout_alignStart="@+id/Sat"
-        android:checked="false"
-        android:textSize="25dp"
-        android:textColor="#ffff0000"
-        android:onClick="SelectDayClicked" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Saturday"
+            android:id="@+id/Sat"
+            android:layout_below="@+id/Fri"
+            android:layout_alignStart="@+id/Fri"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ffbb00ff"
+            android:onClick="SelectDayClicked" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Sunday"
+            android:id="@+id/Sun"
+            android:layout_below="@+id/Sat"
+            android:layout_alignStart="@+id/Sat"
+            android:checked="false"
+            android:textSize="25dp"
+            android:textColor="#ffff0000"
+            android:onClick="SelectDayClicked" />
+    </RadioGroup>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -111,8 +119,6 @@
         android:id="@+id/imageView3"
         android:src="@drawable/home"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/Sat"
-        android:layout_toEndOf="@+id/Sat" />
+        android:layout_toEndOf="@+id/radio" />
 
 </RelativeLayout>
