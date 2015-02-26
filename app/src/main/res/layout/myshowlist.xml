@@ -17,7 +17,8 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="7dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,20 +86,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time : "
-        android:id="@+id/tvT"
-        android:layout_below="@+id/textView15"
-        android:layout_alignStart="@+id/textView15"
-        android:layout_marginTop="5dp"
-        android:textSize="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Time"
         android:id="@+id/tvTime"
-        android:layout_alignTop="@+id/tvT"
-        android:layout_alignStart="@+id/tvInstructor"
-        android:layout_alignParentEnd="true" />
+        android:textSize="15dp"
+        android:textColor="#eb2b2b2b"
+        android:layout_alignBottom="@+id/tvCourseid"
+        android:layout_toEndOf="@+id/tvCourseid" />
 
 </RelativeLayout>

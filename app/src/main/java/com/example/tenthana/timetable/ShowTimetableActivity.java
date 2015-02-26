@@ -62,7 +62,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         Cursor cursor = db.rawQuery("SELECT *, coursename," +
                 "place," +
                 "instructor, " +
-                "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
+                "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
 
         adapter = new SimpleCursorAdapter(this,
                 //android.R.layout.simple_list_item_2,
@@ -159,7 +159,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         Cursor cursor = db.rawQuery("SELECT *, coursename," +
                 "place," +
                 "instructor, " +
-                "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
+                "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
         adapter.changeCursor(cursor);
         db.close();
     }
@@ -235,7 +235,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 Cursor cursor = db.rawQuery("SELECT *, coursename," +
                         "place," +
                         "instructor, " +
-                        "(tstart || '  To  :  ' || tend) time FROM timetable where day = '"+input+"';", null);
+                        "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
                 adapter.changeCursor(cursor);
                 db.close();
             }
