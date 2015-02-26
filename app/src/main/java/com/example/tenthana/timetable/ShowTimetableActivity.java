@@ -62,7 +62,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         Cursor cursor = db.rawQuery("SELECT *, coursename," +
                 "place," +
                 "instructor, " +
-                "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
+                "('     '|| tstart || '  -  ' || tend) time FROM timetable where day = '"+input+"' ORDER BY time ASC;", null);
 
         adapter = new SimpleCursorAdapter(this,
                 //android.R.layout.simple_list_item_2,
@@ -159,7 +159,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         Cursor cursor = db.rawQuery("SELECT *, coursename," +
                 "place," +
                 "instructor, " +
-                "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
+                "('     '|| tstart || '  -  ' || tend) time FROM timetable where day = '"+input+"' ORDER BY time ASC;", null);
         adapter.changeCursor(cursor);
         db.close();
     }
@@ -178,6 +178,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
             String tstart = c.getString(c.getColumnIndex("tstart"));
             String tend = c.getString(c.getColumnIndex("tend"));
             String day = c.getString(c.getColumnIndex("day"));
+            double time = c.getDouble(c.getColumnIndex("time"));
             Intent i = new Intent(this, StartDesignActivity.class);
             i.putExtra("courseid", courseid);
             i.putExtra("coursename", coursename);
@@ -186,6 +187,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
             i.putExtra("tstart", tstart);
             i.putExtra("tend", tend);
             i.putExtra("day",day);
+            i.putExtra("time",time);
             startActivityForResult(i, 2);
         }
         else {
@@ -207,6 +209,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 String tstart = data.getStringExtra("tstart");
                 String tend = data.getStringExtra("tend");
                 String day = data.getStringExtra("day");
+                double time = data.getDoubleExtra("time",0.0);
 
                 SQLiteDatabase db = helper.getWritableDatabase();
                 ContentValues r = new ContentValues();
@@ -216,6 +219,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 r.put("instructor",instructor);
                 r.put("tstart",tstart);
                 r.put("tend",tend);
+                r.put("time",time);
                 r.put("day",day);
                 long newId = db.update("timetable", r, "_id = ?",
                         new String[]{Long.toString(selectedId)});
@@ -235,7 +239,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 Cursor cursor = db.rawQuery("SELECT *, coursename," +
                         "place," +
                         "instructor, " +
-                        "('     '|| tstart || ' -   ' || tend) time FROM timetable where day = '"+input+"';", null);
+                        "('     '|| tstart || '  -  ' || tend) time FROM timetable where day = '"+input+"' ORDER BY time ASC;", null);
                 adapter.changeCursor(cursor);
                 db.close();
             }

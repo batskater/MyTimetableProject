@@ -56,12 +56,14 @@ public class MainActivity extends ActionBarActivity {
                 String tstart = data.getStringExtra("tstart");
                 String tend = data.getStringExtra("tend");
                 String day = data.getStringExtra("day");
+                double time = data.getDoubleExtra("time",0.0);
                 r.put("courseid", courseid);
                 r.put("coursename",coursename);
                 r.put("place",place);
                 r.put("instructor",instructor);
                 r.put("tstart",tstart);
                 r.put("tend",tend);
+                r.put("time",time);
                 r.put("day",day);
                 long new_id = db.insert("timetable",null,r);
 

@@ -89,6 +89,8 @@ public class StartDesignActivity extends ActionBarActivity {
         String sTstart = etStart.getText().toString();
         String sTend = etEnd.getText().toString();
 
+        double time = Double.parseDouble(sTstart);
+
         if (sCourseId.trim().length() == 0 || sCourseName.trim().length() == 0 || sPlace.trim().length() == 0
                 || sInstructor.trim().length() == 0 || sTend.trim().length() == 0 || sTstart.trim().length() == 0) {
             Toast t = Toast.makeText(this.getApplicationContext(),
@@ -105,6 +107,7 @@ public class StartDesignActivity extends ActionBarActivity {
             result.putExtra("tstart", etStart.getText().toString());
             result.putExtra("tend", etEnd.getText().toString());
             result.putExtra("day", rgDay);
+            result.putExtra("time",time);
 
             this.setResult(RESULT_OK, result);
             this.finish();

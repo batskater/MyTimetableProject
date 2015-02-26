@@ -21,8 +21,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 "place text not null," +            // place
                 "instructor text not null," +            // instructor
                 "tstart text not null," +            // start
-                "tend text not null," +            // end
-                "day text default 0.0);";         // day
+                "tend text not null," +
+                "day  text not null," +// end
+                "time real default 0.0);";         // day
         db.execSQL(sql);
     }
 
