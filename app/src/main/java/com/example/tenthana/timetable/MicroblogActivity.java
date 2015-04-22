@@ -100,9 +100,9 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
             String line;
 
             try {
-                Log.e("LoadMessageTask", "" + timestamp);
+                //Log.e("LoadMessageTask", "" + timestamp);
                 URL u = new URL("http://ict.siit.tu.ac.th/~u5522781541/timetable/fetch.php?time="
-                        + timestamp);
+                        +timestamp+ "&subj=" +courseid);
                 HttpURLConnection h = (HttpURLConnection)u.openConnection();
                 h.setRequestMethod("GET");
                 h.setDoInput(true);
