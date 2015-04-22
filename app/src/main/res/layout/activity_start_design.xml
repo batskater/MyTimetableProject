@@ -225,7 +225,8 @@
         android:layout_toEndOf="@+id/textView11"
         android:singleLine="true"
         android:gravity="bottom"
-        android:numeric="integer|signed|decimal" />
+        android:numeric="integer|signed|decimal"
+        android:hint="XX:XX" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -258,7 +259,8 @@
         android:layout_toEndOf="@+id/textView11"
         android:singleLine="true"
         android:gravity="bottom"
-        android:numeric="integer|signed|decimal" />
+        android:numeric="integer|signed|decimal"
+        android:hint="XX:XX" />
 
     <ImageView
         android:layout_width="wrap_content"

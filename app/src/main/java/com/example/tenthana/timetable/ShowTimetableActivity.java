@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.ActionMode;
@@ -25,6 +24,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
     SimpleCursorAdapter adapter;
     long selectedId;
     ActionMode actionMode;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +116,11 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 break;
             case R.id.menu_edit:
                 editClicked();
+                mode.finish();
+                break;
+            case R.id.menu_chat:
+                Intent i = new Intent(this,LoginActivity.class);
+                startActivity(i);
                 mode.finish();
                 break;
             default:
