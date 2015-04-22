@@ -66,7 +66,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
 
         adapter = new SimpleCursorAdapter(this,
                 //android.R.layout.simple_list_item_2,
-                R.layout.myshowlist,
+                R.layout.show_list_item,
                 cursor,
                 new String[] {"courseid", "coursename","place","instructor","time"},
                 new int[] {R.id.tvCourseid, R.id.tvCoursename, R.id.tvLocation, R.id.tvInstructor, R.id.tvTime},
@@ -119,8 +119,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
                 mode.finish();
                 break;
             case R.id.menu_chat:
-                Intent i = new Intent(this,LoginActivity.class);
-                startActivity(i);
+                chatClicked();
                 mode.finish();
                 break;
             default:
@@ -144,6 +143,20 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         // Start the ActionMode with an item is long-clicked
         actionMode = this.startActionMode(this);
         return true;
+    }
+
+    private void chatClicked() {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT courseid FROM timetable WHERE _id=?;",
+                new String[]{Long.toString(selectedId)});
+        if (c.getCount() == 1) {
+            c.moveToFirst();
+            String courseid = c.getString(c.getColumnIndex("courseid"));
+            Intent i = new Intent(this, MicroblogLoginActivity.class);
+            i.putExtra("courseid", courseid);
+            startActivity(i);
+        }
+
     }
 
     private void deleteClicked() {

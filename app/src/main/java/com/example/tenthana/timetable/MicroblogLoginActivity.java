@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class MicroblogLoginActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,11 @@ public class LoginActivity extends ActionBarActivity {
             t.show();
         }
         else {
+            Intent a = this.getIntent();
+            String courseid = a.getStringExtra("courseid");
             Intent i =  new Intent(this, MicroblogActivity.class);
             i.putExtra("user", user);
+            i.putExtra("courseid",courseid);
             startActivity(i);
         }
     }

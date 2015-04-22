@@ -43,7 +43,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
     int timestamp = 0;
     ArrayList<Map<String, String>> data;
     SimpleAdapter adapter;
-    String user;
+    String user,courseid;
     long lastUpdate = 0;
     Handler handler;
 
@@ -63,6 +63,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         task.execute();
         Intent i = this.getIntent();
         user = i.getStringExtra("user");
+        courseid = i.getStringExtra("courseid");
 
         handler = new Handler();
         handler.postDelayed(this, 10000);
@@ -100,7 +101,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
 
             try {
                 Log.e("LoadMessageTask", "" + timestamp);
-                URL u = new URL("http://ict.siit.tu.ac.th/~cholwich/microblog/fetch.php?time="
+                URL u = new URL("http://ict.siit.tu.ac.th/~u5522781541/timetable/fetch.php?time="
                         + timestamp);
                 HttpURLConnection h = (HttpURLConnection)u.openConnection();
                 h.setRequestMethod("GET");
@@ -182,7 +183,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
             String user = params[0];
             String message = params[1];
             HttpClient h = new DefaultHttpClient();
-            HttpPost p = new HttpPost("http://ict.siit.tu.ac.th/~cholwich/microblog/post.php");
+            HttpPost p = new HttpPost("http://ict.siit.tu.ac.th/~u5522781541/timetable/post.php");
             List<NameValuePair> values = new ArrayList<NameValuePair>();
             values.add(new BasicNameValuePair("user", user));
             values.add(new BasicNameValuePair("message", message));

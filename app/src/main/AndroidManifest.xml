@@ -33,14 +33,19 @@
             android:name=".StartDesignActivity"
             android:label="Designing Timetable !" >
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="Microblog" >
-        </activity>
+
         <activity
             android:name=".MicroblogActivity"
             android:label="@string/title_activity_microblog" >
         </activity>
+
+        <activity
+            android:name=".MicroblogLoginActivity"
+            android:label="Login" >
+        </activity>
+
+
     </application>
 
 </manifest>
+
