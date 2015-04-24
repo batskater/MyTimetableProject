@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_microblog_login">Microblog Login Activity</string>
     <string name="title_activity_microblog">MicroblogActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_signup">SignupActivity</string>
 
 </resources>
