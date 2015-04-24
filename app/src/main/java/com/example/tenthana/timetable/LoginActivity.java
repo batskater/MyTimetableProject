@@ -44,10 +44,7 @@ public class LoginActivity extends ActionBarActivity {
         Intent i;
         switch (id) {
             case R.id.btlogin:
-                i = new Intent(this,MainActivity.class);
-                i.putExtra("username",etUsername.getText().toString());
-                i.putExtra("password",etPassword.getText().toString());
-                startActivity(i);
+                LoginClicked();
                 break;
             case R.id.btsignup:
                 i = new Intent(this,SignupActivity.class);
@@ -56,6 +53,14 @@ public class LoginActivity extends ActionBarActivity {
 
         }
 
+    }
+
+    public boolean LoginClicked() {
+        //i = new Intent(this,MainActivity.class);
+        //i.putExtra("username",etUsername.getText().toString());
+        //i.putExtra("password",etPassword.getText().toString());
+        //startActivity(i);
+        return true;
     }
 
 

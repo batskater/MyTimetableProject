@@ -38,10 +38,6 @@
             android:label="@string/title_activity_microblog" >
         </activity>
         <activity
-            android:name=".MicroblogLoginActivity"
-            android:label="Login" >
-        </activity>
-        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>

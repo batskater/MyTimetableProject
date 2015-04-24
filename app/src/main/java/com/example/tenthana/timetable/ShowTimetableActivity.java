@@ -152,7 +152,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         if (c.getCount() == 1) {
             c.moveToFirst();
             String courseid = c.getString(c.getColumnIndex("courseid"));
-            Intent i = new Intent(this, MicroblogLoginActivity.class);
+            Intent i = new Intent(this, MicroblogActivity.class);
             i.putExtra("courseid", courseid);
             startActivity(i);
         }
