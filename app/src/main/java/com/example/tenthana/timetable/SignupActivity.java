@@ -59,18 +59,24 @@ public class SignupActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void SignupClicked(View v){
+    public boolean SignupClicked(View v){
+        String line;
+        StringBuilder buffer = new StringBuilder();
+
         EditText etName = (EditText)findViewById(R.id.etName);
-        EditText etSurName = (EditText)findViewById(R.id.etSurName);
         EditText etUsername = (EditText)findViewById(R.id.etUsername);
         EditText etPassword = (EditText)findViewById(R.id.etPassword);
 
+        String sName = etName.getText().toString();
+        String sUsername = etUsername.getText().toString();
+        String sPassword = etPassword.getText().toString();
 
         HttpClient h = new DefaultHttpClient();
         HttpPost p = new HttpPost("http://ict.siit.tu.ac.th/~u5522781541/timetable/post.php");
         List<NameValuePair> values = new ArrayList<NameValuePair>();
-        values.add(new BasicNameValuePair("name",etName));
-        values.add(new BasicNameValuePair("surname",etSurName));
+        values.add(new BasicNameValuePair("username",sUsername));
+        values.add(new BasicNameValuePair("password",sPassword));
+        values.add(new BasicNameValuePair("name",sName));
 
         try {
             p.setEntity(new UrlEncodedFormEntity(values));
