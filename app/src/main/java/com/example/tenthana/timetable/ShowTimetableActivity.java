@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class ShowTimetableActivity extends ActionBarActivity implements AdapterView.OnItemLongClickListener, ActionMode.Callback{
     DBHelper helper;
-    String input;
+    String input,curuser;
     SimpleCursorAdapter adapter;
     long selectedId;
     ActionMode actionMode;
@@ -39,6 +39,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
 
         Intent i = this.getIntent();
         input = i.getStringExtra("day");
+        curuser = i.getStringExtra("currentuser");
 
         TextView tvDay = (TextView)findViewById(R.id.tvDay);
         tvDay.setText(input);
@@ -154,6 +155,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
             String courseid = c.getString(c.getColumnIndex("courseid"));
             Intent i = new Intent(this, MicroblogActivity.class);
             i.putExtra("courseid", courseid);
+            i.putExtra("currentuser",curuser);
             startActivity(i);
         }
 

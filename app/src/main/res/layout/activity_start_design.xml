@@ -161,7 +161,7 @@
             android:id="@+id/rbWed"
             android:checked="false"
             android:layout_below="@+id/rbTue"
-            android:layout_toStartOf="@+id/editText5"
+            android:layout_toStartOf="@+id/etPassword"
             android:textColor="#ff00ff00" />
 
         <RadioButton
@@ -181,7 +181,7 @@
             android:id="@+id/rbFri"
             android:checked="false"
             android:layout_alignTop="@+id/rbMon"
-            android:layout_toEndOf="@+id/editText5"
+            android:layout_toEndOf="@+id/etPassword"
             android:textColor="#ff00e3ff" />
 
         <RadioButton

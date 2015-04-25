@@ -62,7 +62,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         LoadMessageTask task = new LoadMessageTask();
         task.execute();
         Intent i = this.getIntent();
-        user = i.getStringExtra("user");
+        user = i.getStringExtra("currentuser");
         courseid = i.getStringExtra("courseid");
 
         handler = new Handler();
@@ -187,6 +187,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
             List<NameValuePair> values = new ArrayList<NameValuePair>();
             values.add(new BasicNameValuePair("user", user));
             values.add(new BasicNameValuePair("message", message));
+            values.add(new BasicNameValuePair("subject", courseid));
 
             try {
                 p.setEntity(new UrlEncodedFormEntity(values));

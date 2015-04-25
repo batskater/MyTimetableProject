@@ -14,10 +14,13 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
     //SimpleCursorAdapter adapter;
+    String input;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent i = this.getIntent();
+        input = i.getStringExtra("currentuser");
     }
 
 
@@ -38,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case R.id.btShow:
                 i = new Intent(this,SelectDayActivity.class);
+                i.putExtra("currentuser",input);
                 startActivity(i);
                 break;
         }

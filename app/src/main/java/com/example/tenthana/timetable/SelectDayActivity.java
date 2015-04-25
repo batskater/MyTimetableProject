@@ -7,10 +7,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class SelectDayActivity extends ActionBarActivity {
+    String input;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_day);
+        Intent i = this.getIntent();
+        input = i.getStringExtra("currentuser");
     }
+
 
     public void SelectDayClicked (View v) {
         String day = "";
@@ -20,7 +24,9 @@ public class SelectDayActivity extends ActionBarActivity {
             case R.id.Mon:
                 i = new Intent(this,ShowTimetableActivity.class);
                 i.putExtra("day", "Monday");
+                i.putExtra("currentuser",input);
                 startActivity(i);
+
                 break;
             case R.id.Tue:
                 i = new Intent(this,ShowTimetableActivity.class);
