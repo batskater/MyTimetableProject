@@ -26,6 +26,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,31 +101,36 @@ public class LoginActivity extends ActionBarActivity {
         protected Boolean doInBackground(String... params) {
             String username = params[0];
             String password = params[1];
-            HttpClient h = new DefaultHttpClient();
-            HttpPost p = new HttpPost("http://ict.siit.tu.ac.th/~u5522781541/timetable/login.php");
-            List<NameValuePair> values = new ArrayList<NameValuePair>();
-            values.add(new BasicNameValuePair("user", username));
-            values.add(new BasicNameValuePair("pass", password));
+            BufferedReader reader;
+            StringBuilder buffer = new StringBuilder();
+            String line;
 
             try {
-                p.setEntity(new UrlEncodedFormEntity(values));
-                HttpResponse response = h.execute(p);
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(response.getEntity().getContent()));
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line);
-                }
+                URL u = new URL("http://ict.siit.tu.ac.th/~u5522781541/timetable/login.php?user="
+                        +username+ "&pass=" +password);
+                HttpURLConnection h = (HttpURLConnection)u.openConnection();
+                h.setRequestMethod("GET");
+                h.setDoInput(true);
+                h.connect();
+                int response = h.getResponseCode();
+                if (response == 200) {
+                    reader = new BufferedReader(new InputStreamReader(h.getInputStream()));
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line);
+                    }
 
-                JSONObject json = new JSONObject(buffer.toString());
-                boolean res = json.getBoolean("response");
-                String u = json.getString("user");
-                if (res == true) {
-                    i = new Intent(LoginActivity.this, MainActivity.class);
-                    i.putExtra("currentuser",u);
-                    return true;
+
+                    JSONObject json = new JSONObject(buffer.toString());
+                    boolean res = json.getBoolean("response");
+                    String uu = json.getString("user");
+
+                    if (res == true) {
+                        i = new Intent(LoginActivity.this, MainActivity.class);
+                        i.putExtra("currentuser", uu);
+                        return true;
+                    } else
+                        return false;
                 }
-                else
-                    return false;
 
             } catch (UnsupportedEncodingException e) {
                 Log.e("Error", "Invalid encoding");
