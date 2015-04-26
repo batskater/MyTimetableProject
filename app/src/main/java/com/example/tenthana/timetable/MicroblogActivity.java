@@ -33,7 +33,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,9 +56,9 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         data = new ArrayList<Map<String, String>>();
         adapter = new SimpleAdapter(this,
                 data,
-                android.R.layout.simple_list_item_2,
-                new String[] {"user", "message"},
-                new int[] {android.R.id.text1, android.R.id.text2});
+                R.layout.microblog_list_item,
+                new String[] {"user", "message","time"},
+                new int[] {R.id.tvSay, R.id.tvMessage,R.id.tvCTime});
         ListView l = (ListView)findViewById(R.id.listView);
         l.setAdapter(adapter);
         LoadMessageTask task = new LoadMessageTask();
@@ -107,7 +109,6 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                 h.setRequestMethod("GET");
                 h.setDoInput(true);
                 h.connect();
-
                 int response = h.getResponseCode();
                 if (response == 200) {
                     reader = new BufferedReader(new InputStreamReader(h.getInputStream()));
@@ -125,9 +126,14 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                     boolean res = json.getBoolean("response");
                     String error = json.getString("errmsg");
 
+
                     if(res == true){
                         timestamp = json.getInt("timestamp");
                         JSONArray msg = json.getJSONArray("msg");
+                        //fotmatting timestamp
+                        long dv = Long.valueOf(Integer.toString(timestamp))*1000;
+                        Date df = new java.util.Date(dv);
+                        String vv = new SimpleDateFormat("MM dd, yyyy hh:mma").format(df);
 
                         for(int i = 0; i<msg.length(); i++)
                         {
@@ -135,6 +141,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                             Map<String,String> item = new HashMap<String,String>();
                             item.put("user",msgele.getString("user"));
                             item.put("message",msgele.getString("message"));
+                            item.put("time",vv);
                             data.add(0,item);
                         }
 
