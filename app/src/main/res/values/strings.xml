@@ -5,8 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_microblog_login">Microblog Login Activity</string>
-    <string name="title_activity_microblog">MicroblogActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_microblog">Microblogging</string>
+    <string name="title_activity_login">System Login</string>
+    <string name="title_activity_signup">Create Your Account</string>
 
 </resources>

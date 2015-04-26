@@ -69,13 +69,13 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         courseid = i.getStringExtra("courseid");
 
         handler = new Handler();
-        handler.postDelayed(this, 10000);
+        handler.postDelayed(this, 30000);
     }
 
     public void run() {
         LoadMessageTask task = new LoadMessageTask();
         task.execute();
-        handler.postDelayed(this, 10000);
+        handler.postDelayed(this, 30000);
 
     }
 
@@ -87,6 +87,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
     public void buttonClicked(View v) {
         EditText etMessage = (EditText)findViewById(R.id.etMessage);
         String message = etMessage.getText().toString().trim();
+        etMessage.setText("");
         if (message.length() > 0) {
             PostMessageTask p = new PostMessageTask();
             p.execute(user, message);
@@ -133,7 +134,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                         //fotmatting timestamp
                         long dv = Long.valueOf(Integer.toString(timestamp))*1000;
                         Date df = new java.util.Date(dv);
-                        String vv = new SimpleDateFormat("MM dd, yyyy hh:mma").format(df);
+                        String vv = new SimpleDateFormat("MM/dd/yyyy hh:mma").format(df);
 
                         for(int i = 0; i<msg.length(); i++)
                         {
