@@ -61,6 +61,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         l.setAdapter(adapter);
         LoadMessageTask task = new LoadMessageTask();
         task.execute();
+
         Intent i = this.getIntent();
         user = i.getStringExtra("currentuser");
         courseid = i.getStringExtra("courseid");
@@ -87,7 +88,6 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         if (message.length() > 0) {
             PostMessageTask p = new PostMessageTask();
             p.execute(user, message);
-
         }
     }
 
@@ -114,8 +114,6 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                     while((line = reader.readLine()) != null) {
                         buffer.append(line);
                     }
-
-                    Log.e("LoadMessageTask", buffer.toString());
                     //Parsing JSON and displaying messages
 
                     //To append a new message:
