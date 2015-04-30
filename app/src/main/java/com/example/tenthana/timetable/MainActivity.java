@@ -11,16 +11,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 
 public class MainActivity extends ActionBarActivity {
-    //SimpleCursorAdapter adapter;
+    SessionManager session;
     String input;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = this.getIntent();
-        input = i.getStringExtra("currentuser");
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
     }
 
 
@@ -50,6 +52,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
+                HashMap<String, String> detail = session.getUserDetails();
+                String user = detail.get(SessionManager.KEY_NAME);
                 DBHelper helper = new DBHelper(this);
                 SQLiteDatabase db = helper.getReadableDatabase();
                 ContentValues r = new ContentValues();
@@ -69,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
                 r.put("tend",tend);
                 r.put("time",time);
                 r.put("day",day);
+                r.put("user",user);
                 long new_id = db.insert("timetable",null,r);
 
                 if (new_id == -1) {
@@ -97,8 +102,8 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            session.logoutUser();
         }
 
         return super.onOptionsItemSelected(item);

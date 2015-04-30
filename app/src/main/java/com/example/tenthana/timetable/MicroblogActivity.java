@@ -48,11 +48,14 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
     String user,courseid;
     long lastUpdate = 0;
     Handler handler;
-
+    SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_microblog);
+        session = new SessionManager(getApplicationContext());
+        HashMap<String, String> detail = session.getUserDetails();
+        user = detail.get(SessionManager.KEY_NAME);
         data = new ArrayList<Map<String, String>>();
         adapter = new SimpleAdapter(this,
                 data,
@@ -65,7 +68,6 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
         task.execute();
 
         Intent i = this.getIntent();
-        user = i.getStringExtra("currentuser");
         courseid = i.getStringExtra("courseid");
 
         handler = new Handler();
@@ -105,7 +107,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
             try {
                 //Log.e("LoadMessageTask", "" + timestamp);
                 URL u = new URL("http://ict.siit.tu.ac.th/~u5522781541/timetable/fetch.php?time="
-                        +timestamp+ "&subj=" +courseid);
+                        +timestamp+ "&subj=" +courseid+ "&user="+user);
                 HttpURLConnection h = (HttpURLConnection)u.openConnection();
                 h.setRequestMethod("GET");
                 h.setDoInput(true);
@@ -140,7 +142,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                         {
                             JSONObject msgele = msg.getJSONObject(i);
                             Map<String,String> item = new HashMap<String,String>();
-                            item.put("user",msgele.getString("user"));
+                            item.put("user",msgele.getString("user") +" (" +msgele.getString("fullname")+")" );
                             item.put("message",msgele.getString("message"));
                             item.put("time",vv);
                             data.add(0,item);

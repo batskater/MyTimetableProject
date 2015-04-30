@@ -11,12 +11,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class StartDesignActivity extends ActionBarActivity {
     DBHelper helper;
+    SessionManager session;
+    String user;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_design);
-
+        session = new SessionManager(getApplicationContext());
+        HashMap<String, String> detail = session.getUserDetails();
+        user = detail.get(SessionManager.KEY_NAME);
         Intent i = this.getIntent();
         if (i.hasExtra("courseid")) {
             String courseid = i.getStringExtra("courseid");

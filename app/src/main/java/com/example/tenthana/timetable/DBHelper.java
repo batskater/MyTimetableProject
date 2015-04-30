@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String name = "timetable.sqlite3";
-    private static final int version = 2;
+    private static final int version = 3;
 
 
     public DBHelper(Context ctx) {
@@ -23,7 +23,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "tstart text not null," +            // start
                 "tend text not null," +
                 "day  text not null," +// end
-                "time real default 0.0);";         // day
+                "time real default 0.0," +
+                "user text not null); ";         // day
         db.execSQL(sql);
     }
 

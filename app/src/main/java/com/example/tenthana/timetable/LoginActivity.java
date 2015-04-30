@@ -33,11 +33,12 @@ import java.util.List;
 
 
 public class LoginActivity extends ActionBarActivity {
-
+    SessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        session = new SessionManager(getApplicationContext());
     }
 
 
@@ -122,11 +123,12 @@ public class LoginActivity extends ActionBarActivity {
 
                     JSONObject json = new JSONObject(buffer.toString());
                     boolean res = json.getBoolean("response");
-                    String uu = json.getString("user");
+                    String user = json.getString("user");
+                    String name = json.getString("name");
 
                     if (res == true) {
+                        session.createLoginSession(user, name);
                         i = new Intent(LoginActivity.this, MainActivity.class);
-                        i.putExtra("currentuser", uu);
                         return true;
                     } else
                         return false;

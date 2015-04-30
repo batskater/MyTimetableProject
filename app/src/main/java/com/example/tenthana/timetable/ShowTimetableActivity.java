@@ -18,17 +18,20 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class ShowTimetableActivity extends ActionBarActivity implements AdapterView.OnItemLongClickListener, ActionMode.Callback{
     DBHelper helper;
     String input,curuser;
     SimpleCursorAdapter adapter;
     long selectedId;
     ActionMode actionMode;
-
+    SessionManager session;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_timetable);
+        session = new SessionManager(getApplicationContext());
         int YELLOW = 0xFFFFFF00;
         int PINK = 0xFFFF00FF;
         int GREEN = 0xFF00FF00;
@@ -39,7 +42,8 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
 
         Intent i = this.getIntent();
         input = i.getStringExtra("day");
-        curuser = i.getStringExtra("currentuser");
+        HashMap<String, String> detail = session.getUserDetails();
+        String user = detail.get(SessionManager.KEY_NAME);
 
         TextView tvDay = (TextView)findViewById(R.id.tvDay);
         tvDay.setText(input);
@@ -63,7 +67,7 @@ public class ShowTimetableActivity extends ActionBarActivity implements AdapterV
         Cursor cursor = db.rawQuery("SELECT *, coursename," +
                 "place," +
                 "instructor, " +
-                "('     '|| tstart || '  -  ' || tend) time FROM timetable where day = '"+input+"' ORDER BY time ASC;", null);
+                "('     '|| tstart || '  -  ' || tend) time FROM timetable where day = '"+input+"' AND user = '"+user+"' ORDER BY time ASC;", null);
 
         adapter = new SimpleCursorAdapter(this,
                 //android.R.layout.simple_list_item_2,

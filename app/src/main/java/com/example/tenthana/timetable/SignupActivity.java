@@ -72,22 +72,22 @@ public class SignupActivity extends ActionBarActivity {
         String sPassword = etPassword.getText().toString();
 
         SignupTask p = new SignupTask();
-        p.execute(sName, sUsername, sPassword);
+        p.execute(sUsername, sPassword, sName);
     }
 
     class SignupTask extends AsyncTask<String, Void, Boolean> {
         String line;
         StringBuilder buffer = new StringBuilder();
         protected Boolean doInBackground(String... params) {
-            String name = params[0];
-            String username = params[1];
-            String password = params[2];
+            String username = params[0];
+            String password = params[1];
+            String name = params[2];
             HttpClient h = new DefaultHttpClient();
             HttpPost p = new HttpPost("http://ict.siit.tu.ac.th/~u5522781541/timetable/signup.php");
             List<NameValuePair> values = new ArrayList<NameValuePair>();
-            values.add(new BasicNameValuePair("name", name));
             values.add(new BasicNameValuePair("username", username));
             values.add(new BasicNameValuePair("password", password));
+            values.add(new BasicNameValuePair("name", name));
             try {
                 p.setEntity(new UrlEncodedFormEntity(values));
                 HttpResponse response = h.execute(p);

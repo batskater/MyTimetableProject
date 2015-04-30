@@ -11,8 +11,6 @@ public class SelectDayActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_day);
-        Intent i = this.getIntent();
-        input = i.getStringExtra("currentuser");
     }
 
 
@@ -24,7 +22,6 @@ public class SelectDayActivity extends ActionBarActivity {
             case R.id.Mon:
                 i = new Intent(this,ShowTimetableActivity.class);
                 i.putExtra("day", "Monday");
-                i.putExtra("currentuser",input);
                 startActivity(i);
 
                 break;
