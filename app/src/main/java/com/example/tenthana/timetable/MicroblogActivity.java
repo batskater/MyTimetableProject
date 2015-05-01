@@ -133,10 +133,6 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                     if(res == true){
                         timestamp = json.getInt("timestamp");
                         JSONArray msg = json.getJSONArray("msg");
-                        //fotmatting timestamp
-                        long dv = Long.valueOf(Integer.toString(timestamp))*1000;
-                        Date df = new java.util.Date(dv);
-                        String vv = new SimpleDateFormat("MM/dd/yyyy hh:mma").format(df);
 
                         for(int i = 0; i<msg.length(); i++)
                         {
@@ -144,7 +140,7 @@ public class MicroblogActivity extends ActionBarActivity implements Runnable {
                             Map<String,String> item = new HashMap<String,String>();
                             item.put("user",msgele.getString("user") +" (" +msgele.getString("fullname")+")" );
                             item.put("message",msgele.getString("message"));
-                            item.put("time",vv);
+                            item.put("time",msgele.getString("t"));
                             data.add(0,item);
                         }
 

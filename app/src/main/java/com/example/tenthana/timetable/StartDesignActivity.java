@@ -92,19 +92,20 @@ public class StartDesignActivity extends ActionBarActivity {
         String sCourseName = etCourseName.getText().toString();
         String sPlace = etPlace.getText().toString();
         String sInstructor = etInstructor.getText().toString();
-        String sTstart = etStart.getText().toString();
+        String ststart = etStart.getText().toString();
         String sTend = etEnd.getText().toString();
 
-        double time = Double.parseDouble(sTstart);
+
 
         if (sCourseId.trim().length() == 0 || sCourseName.trim().length() == 0 || sPlace.trim().length() == 0
-                || sInstructor.trim().length() == 0 || sTend.trim().length() == 0 || sTstart.trim().length() == 0) {
+                || sInstructor.trim().length() == 0 || sTend.trim().length() == 0 || ststart.trim().length() == 0) {
             Toast t = Toast.makeText(this.getApplicationContext(),
                     "Please fill in all necessary input.",
                     Toast.LENGTH_SHORT);
             t.show();
         }
         else {
+            double time = Double.parseDouble(ststart);
             Intent result = new Intent();
             result.putExtra("courseid", etCourseID.getText().toString());
             result.putExtra("coursename", etCourseName.getText().toString());

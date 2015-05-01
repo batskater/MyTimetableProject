@@ -104,6 +104,7 @@ public class MainActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
             session.logoutUser();
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

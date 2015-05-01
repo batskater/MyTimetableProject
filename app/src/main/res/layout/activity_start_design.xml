@@ -128,11 +128,8 @@
         android:id="@+id/rgDay"
         android:layout_below="@+id/textView10"
         android:layout_alignStart="@+id/textView10"
-        android:layout_toStartOf="@+id/etStart"><![CDATA[>
+        android:layout_toStartOf="@+id/etStart">
 
-
-
-        ]]>
 
         <RadioButton
             android:layout_width="wrap_content"

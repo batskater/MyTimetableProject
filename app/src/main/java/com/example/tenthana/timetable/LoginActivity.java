@@ -152,6 +152,7 @@ public class LoginActivity extends ActionBarActivity {
             if (result) {
 
                 startActivity(i);
+                finish();
 
             } else {
                 Toast t = Toast.makeText(LoginActivity.this.getApplicationContext(),
